@@ -1,0 +1,119 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+import random
+def number_guessing_game():
+    
+  answers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+  answer = (random.choice(answers))
+  print("guess the number, 1-20")
+  game = True
+  while game == True:
+      guess = input("guess: ").strip().lower()
+      integer_guess = int(guess)
+      if integer_guess == answer:
+          print("you got it")
+          game = False
+          
+      elif int(guess) > answer:
+          print("too high")
+      elif int(guess) < answer:
+          print("too low")
+
+
+def rock_paper_scissors():
+    options = ["rock", "paper", "scissors"]
+    option = random.choice(options)
+    print("lets play rock paper scissors. we'll play till you win")
+    game = True
+    while game == True:
+        user = input(": ").strip().lower()
+        
+        bot = option
+        print(bot)
+        if user == bot:
+            print("it's a tie")
+            option = random.choice(options)
+        elif user == "scissors" and bot == "paper":
+            print("you win")
+            choice = input("would you like to play again?: ").strip().lower()
+            if choice == "yes":
+                print("ok let's play again")
+                option = random.choice(options)
+            else:
+                game = False
+                break
+        elif user == "paper" and bot == "rock":
+            print("you win")
+            choice = input("would you like to play again?: ").strip().lower()
+            if choice == "yes":
+                print("ok let's play again")
+                option = random.choice(options)
+            else:
+                game = False
+                break
+        elif user == "rock" and bot == "scissors":
+            print("you win")
+            choice = input("would you like to play again?: ").strip().lower()
+            if choice == "yes":
+                print("ok let's play again")
+                option = random.choice(options)
+            else:
+                game = False
+                break
+        
+        elif bot == "scissors" and user == "paper":
+            print("bot wins, try again.")
+            option = random.choice(options)
+        elif bot == "paper" and user == "rock":
+            print("bot wins, try again.")
+            option = random.choice(options)
+        elif bot == "rock" and user == "scissors":
+            print("bot wins, try again.")
+            option = random.choice(options)
+        else:
+            print("wait a sec, huh?")
+            print("I don't understand that please try again.")
+            option = random.choice(options)
+
+
+def guess_how_many_pie_I_have():
+    print("guess how many pie I have, 1-20, there is a score tracker, game ends when it hits 10")
+    answers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    answer = (random.choice(answers))
+    score = 0
+    game = True
+    while game == True:
+        guess = input("number of pies: ").strip().lower()
+        if int(guess) == answer:
+            score += 1
+            if score == 10:
+                print(f"score: {score}")
+                print(f"congrats you got {score} points!")
+                game = False
+                break
+            else:
+                print(f"yeah you got it, I have {answer} pies.")
+                
+                print(f"score: {score} out of 10")
+                print(f"you just need {10 - score} more points.")
+                answer = (random.choice(answers))
+        elif int(guess) > answer and int(guess) != answer:
+            
+            if int(guess) > 20:
+                print("I said 1-20 you idiot")
+            else:
+                print("I don't have that much :(")
+                print(f"score: {score}")
+            
+        elif int(guess) < answer and int(guess) != answer:
+            print("I have more than that >:(")
+            print(f"score: {score}")
+        elif score == 10:
+            print(f"score: {score}")
+            print(f"congrats you got {score} points!")
+            game = False
+            break
+    
+        else:
+            print("I don't understand")
+guess_how_many_pie_I_have()
